@@ -13,7 +13,21 @@
 <% if @products.any? %>
   <% @products.each do |product| %>
   <div class="list-group">
-    <div><%= product.name %></div>
+    <div>Product: <%= product.name %>
+      <% if product.country_of_origin %>
+      |  Country of origin: <%=product.country_of_origin %>
+      <%  end  %>
+      <% if product.boxsize %>
+      |  Boxsize: <%=product.boxsize %>
+      <% end %>
+      <% if product.boxprice %>
+      | Price per Box: <%= product.boxprice %>
+      <% end %>
+      <% if product.product_class %>
+      | Class: <%= product.product_class %>
+      <% end %>
+
+    </div>
     <%= link_to "Edit #{product.name}", edit_user_product_path(current_user, product), class: "list-group-item-text" %> |
     <%= link_to "Delete #{product.name}", user_product_path(current_user, product), method: :delete, class: "list-group-item-text"%>
     <hr>
