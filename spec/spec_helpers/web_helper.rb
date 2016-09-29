@@ -18,15 +18,15 @@ end
 
 def create_customer
   sign_up
-  click_link 'Customer List'
-  click_link 'Add a customer'
+  click_link 'Kundenliste'
+  click_link 'Kunde hinzufügen'
   fill_in 'Name', with: "Damla Baklavalari"
   fill_in 'Email', with: "damla@gmail.com"
-  click_button 'Create Customer'
+  click_button 'Kunde hinzufügen'
 end
 
 def add_product(product: "Apple")
-  click_link 'Add a product'
-  fill_in 'Name', with: product
-  click_button 'Create Product'
+  click_link 'Produkt hinzufügen'
+  fill_in 'Produktsorte', with: product
+  click_button 'Produkt hinzufügen'
 end

@@ -1,0 +1,9 @@
+<p>Hallo <%= @resource.email %>!</p>
+
+<p>
+  Ihr Account wurde gesperrt, aufgrund einer vielzahl von gescheiterten Versuchen sich einzuloggen.
+</p>
+
+<p>Klicken sie auf den folgenden Link, um es zu entsperren</p>
+
+<p><%= link_to 'Meinen Account entsperren', unlock_url(@resource, unlock_token: @token) %></p>

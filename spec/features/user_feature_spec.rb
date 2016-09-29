@@ -14,7 +14,7 @@ feature "sign in" do
 
     scenario "user can sign up using form" do
       sign_up
-      expect(page).to have_content "Currently signed in as samedsdad@mail.com"
+      expect(page).to have_content "Eingeloggt als samedsdad@mail.com"
     end
   end
 
@@ -29,16 +29,16 @@ feature "sign in" do
     end
 
     scenario "user can login" do
-      click_link "Sign out"
+      click_link "Abmelden"
       visit "/"
       fill_in "Email", with: "samedsdad@mail.com"
       fill_in "Password", with: "password"
       click_button "Log in"
-      expect(page).to have_content "Currently signed in as samedsdad@mail.com"
+      expect(page).to have_content "Eingeloggt als samedsdad@mail.com"
     end
 
     scenario "user can see sign out link" do
-      expect(page).to have_link "Sign out"
+      expect(page).to have_link "Abmelden"
     end
   end
 end

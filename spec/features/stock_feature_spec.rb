@@ -6,10 +6,10 @@ feature 'Stock list' do
     add_product(product: "Orange")
     add_product
     visit '/'
-    click_link 'Current stock'
-    click_link 'Add stock'
+    click_link 'Aktueller Lagerbestand'
+    click_link 'Produkt zum Lagerbestand hinzufügen'
     page.check('Orange')
-    click_button 'Create Stock'
+    click_button 'Zum Lagerbestand hinzufügen'
     expect(page).to have_content('Orange')
     expect(page).not_to have_content('Apple')
   end

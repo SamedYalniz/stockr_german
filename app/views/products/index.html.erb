@@ -1,11 +1,11 @@
 <div class="container">
 
-  <%= link_to 'Add a product', new_user_product_path%>
+  <%= link_to 'Produkt hinzufügen', new_user_product_path%>
   <br>
   <br>
 
 <%= form_tag(user_products_path(current_user), :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search products" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Produkte durchsuchen" %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 <br>
@@ -13,23 +13,23 @@
 <% if @products.any? %>
   <% @products.each do |product| %>
   <div class="list-group">
-    <div>Product: <%= product.name %>
+    <div>Produktsorte: <%= product.name %>
       <% if product.country_of_origin %>
-      |  Country of origin: <%=product.country_of_origin %>
+      |  Herkunftsland: <%=product.country_of_origin %>
       <%  end  %>
       <% if product.boxsize %>
-      |  Boxsize: <%=product.boxsize %>
+      |  Paketgröße: <%=product.boxsize %>
       <% end %>
       <% if product.boxprice %>
-      | Price per Box: <%= product.boxprice %>
+      | Paketpreis: <%= product.boxprice %>
       <% end %>
       <% if product.product_class %>
-      | Class: <%= product.product_class %>
+      | Produktklasse: <%= product.product_class %>
       <% end %>
 
     </div>
-    <%= link_to "Edit #{product.name}", edit_user_product_path(current_user, product), class: "list-group-item-text" %> |
-    <%= link_to "Delete #{product.name}", user_product_path(current_user, product), method: :delete, class: "list-group-item-text"%>
+    <%= link_to "#{product.name} bearbeiten", edit_user_product_path(current_user, product), class: "list-group-item-text" %> |
+    <%= link_to "#{product.name} löschen", user_product_path(current_user, product), method: :delete, class: "list-group-item-text"%>
     <hr>
   </div>
   <% end %>

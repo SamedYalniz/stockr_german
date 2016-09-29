@@ -9,22 +9,22 @@ feature 'customer' do
 
   scenario'logged in user can edit a customer' do
     create_customer
-    click_link 'Edit Damla Baklavalari'
+    click_link 'Damla Baklavalari bearbeiten'
     fill_in 'Email', with: 'damlabaklavalari@gmail.com'
-    click_button 'Update Customer'
+    click_button 'Kundendaten aktualisieren'
     expect(page).to have_content('damlabaklavalari@gmail.com')
     expect(page).not_to have_content("damla@gmail.com")
   end
 
   scenario 'logged in user can delete a customer' do
     create_customer
-    click_link 'Delete Damla Baklavalari'
+    click_link 'Damla Baklavalari löschen'
     expect(page).not_to have_content('Damla Baklavalari')
   end
 
   scenario 'logged in user can delete a customer' do
     create_customer
-    click_link 'Delete Damla Baklavalari'
+    click_link 'Damla Baklavalari löschen'
     expect(page).not_to have_content('Damla Baklavalari')
   end
 

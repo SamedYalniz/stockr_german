@@ -1,13 +1,13 @@
 <%= form_for [current_user, @product] do |form| %>
-  <%= form.label :name %>
+  <%= form.label :name, "Produktsorte:" %>
   <%= form.text_field :name %>
-  <%= form.label :country_of_origin %>
-  <%= form.text_field :country_of_origin %>
-  <%= form.label :boxsize %>
+  <%= form.label :country_of_origin, "Herkunftsland:" %>
+  <%= form.text_field :country_of_origin%>
+  <%= form.label :boxsize, "Paketgröße:"%>
   <%= form.text_field :boxsize %>
-  <%= form.label :boxprice %>
+  <%= form.label :boxprice, "Paketpreis:" %>
   <%= form.text_field :boxprice %>
-  <%= form.label :product_class %>
+  <%= form.label :product_class, "Produktklasse:" %>
   <%= form.text_field :product_class %>
-  <%= form.submit class: "btn btn-primary" %>
+  <%= form.submit "Produkt hinzufügen", class: "btn btn-primary" %>
 <% end %>

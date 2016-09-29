@@ -1,6 +1,6 @@
 <div class="container">
-<%= link_to 'Add a customer', new_user_customer_path(current_user) %> |
-<%= link_to 'Send stock update', send_stock_update_user_customer_path(current_user, 1) %>
+<%= link_to 'Kunde hinzufügen', new_user_customer_path(current_user) %> |
+<%= link_to 'Lagerbestand versenden', send_stock_update_user_customer_path(current_user, 1) %>
 <hr>
 <br>
 <br>
@@ -10,9 +10,9 @@
     <div class="list-group">
       <div><%= customer.name %></div>
       <div><%= customer.email %>  </div>
-    <%= link_to "Edit #{customer.name}", edit_user_customer_path(current_user, customer),
+    <%= link_to "#{customer.name} bearbeiten", edit_user_customer_path(current_user, customer),
     class: "list-group-item-text" %> |
-    <%= link_to "Delete #{customer.name}", user_customer_path(current_user, customer), method: :delete, class: "list-group-item-text" %>
+    <%= link_to "#{customer.name} löschen", user_customer_path(current_user, customer), method: :delete, class: "list-group-item-text" %>
     <br><br>
   <% end %>
 <% end %>

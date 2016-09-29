@@ -3,37 +3,37 @@ require 'rails_helper'
 feature 'product' do
   scenario 'a new product can be added' do
     sign_up
-    click_link 'Add a product'
-    fill_in 'Name', with: "Apple"
-    click_button 'Create Product'
+    click_link 'Produkt hinzufügen'
+    fill_in 'Produktsorte', with: "Apple"
+    click_button 'Produkt hinzufügen'
     expect(page).to have_content("Apple")
     expect(Product.count).to eq 1
   end
   scenario 'a new product can be added with boxsize and country of origin and price for box' do
     sign_up
-    click_link 'Add a product'
-    fill_in 'Name', with: "Apple"
-    fill_in 'Country of origin', with: "Uruguay"
-    fill_in 'Boxsize', with: "10kg"
-    fill_in 'Boxprice', with: "12€"
-    fill_in 'Product class', with: 1
-    click_button "Create Product"
-    expect(page).to have_content("Apple | Country of origin: Uruguay | Boxsize: 10kg | Price per Box: 12€ | Class: 1")
+    click_link 'Produkt hinzufügen'
+    fill_in 'Produktsorte', with: "Apple"
+    fill_in 'Herkunftsland', with: "Uruguay"
+    fill_in 'Paketgröße', with: "10kg"
+    fill_in 'Paketpreis', with: "12€"
+    fill_in 'Produktklasse', with: 1
+    click_button "Produkt hinzufügen"
+    expect(page).to have_content("Produktsorte: Apple | Herkunftsland: Uruguay | Paketgröße: 10kg | Paketpreis: 12€ | Produktklasse: 1")
     expect(Product.count).to eq 1
   end
   scenario 'a product can be editted' do
     sign_up
     add_product
-    click_link 'Edit Appl'
-    fill_in 'Name', with: "Apple"
-    click_button 'Update Product'
-    expect(page).to have_content("Apple")
+    click_link 'Apple bearbeiten'
+    fill_in 'Produktsorte', with: "Banane"
+    click_button 'Produkt aktualisieren'
+    expect(page).to have_content("Banane")
   end
 
   scenario 'a product can be deleted' do
     sign_up
     add_product
-    click_link 'Delete Apple'
+    click_link 'Apple löschen'
     expect(page).not_to have_content("Apple")
   end
 
