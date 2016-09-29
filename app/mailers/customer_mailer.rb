@@ -13,7 +13,7 @@ default to: "test@mail.com"
       @user.customers.each do |customer|
         @emails << customer.email
       end
-        mail( to: @user.email, bcc: @emails, subject: "#{@user.email} Stock Update", from: @user.email)
+        mail( to: @user.email, bcc: @emails, subject: "#{@user.email} Aktueller Lagerbestand", from: @user.email)
     end
   end
 end
