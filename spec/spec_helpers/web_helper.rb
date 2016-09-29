@@ -1,7 +1,7 @@
 def sign_up(email="samedsdad@mail.com")
   visit "/"
   within(:css, "li#signup") do
-    click_link('Sign up')
+    click_link('Registrieren')
   end
   fill_in "Email", with: email
   fill_in "Password", with: "password"
