@@ -16,15 +16,23 @@ feature "sign in" do
       sign_up
       expect(page).to have_content "Eingeloggt als samedsdad@mail.com"
     end
+    scenario "user can add information about himself during the sign up process" do
+      visit "/users/sign_up"
+      fill_in "Email", with: "samedsdad@mail.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      fill_in "Description", with: "a company existing since 1990"
+
+    end
   end
 
   context "user has an account" do
-
     before do
       visit "/users/sign_up"
       fill_in "Email", with: "samedsdad@mail.com"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
+      fill_in "Description", with: "a company existing since 1990"
       click_button "Sign up"
     end
 
@@ -40,5 +48,11 @@ feature "sign in" do
     scenario "user can see sign out link" do
       expect(page).to have_link "Abmelden"
     end
-  end
+
+    scenario "user can visit his profile" do
+      click_link("Mein Profil")
+      expect(page). to have_content ("Hello samedsdad@mail.com a company existing since 1990")
+    end
+
+end
 end
