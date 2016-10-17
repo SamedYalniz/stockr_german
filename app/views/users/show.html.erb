@@ -1,4 +1,10 @@
 <div class="container">
+<%= image_tag current_user.image.url(:medium) %>
+<%= form_for current_user, html: { multipart: true } do |form| %>
+  <%= form.file_field :image %>
+  <%= form.submit "Upload picture" %>
+<% end %>
+
 <%= current_user.company_name %>'s profile <br> <br>
 
 Description: <%= current_user.description %> </br>

@@ -119,8 +119,12 @@ feature "sign in" do
       expect(page).to have_content ("company existing since 1989")
       expect(page).to have_content ("Address: Street: Marktstr. 7 City: Düsseldorf Postcode: 50967 Country: German")
       expect(page).to have_content("074000001")
-
-
+    end
+    scenario "user can add a company picture to his profile" do
+      click_link "Mein Profil"
+      page.attach_file('user[image]', Rails.root + 'app/assets/images/company.jpeg')
+      click_button 'Upload picture'
+      expect(page).to have_xpath('//img[contains(@src,"company.jpeg")]')
     end
   end
 end
