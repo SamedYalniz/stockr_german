@@ -1,3 +1,22 @@
-Hello <%= current_user.email %>
-<%= current_user.description %>
-<%= current_user.street %> <%= current_user.city %> <%= current_user.country %>
+<div class="container">
+<%= current_user.company_name %>'s profile <br> <br>
+
+Description: <%= current_user.description %> </br>
+<div class="address">
+Address: <br>
+Street:  <%= current_user.street %> </br>
+City:    <%= current_user.city %></br>
+Postcode: <%= current_user.postcode %></br>
+Country: <%= current_user.country %></br>
+
+      </div>
+      <br>
+Contact no: <%= current_user.contact_number %> <br>
+Email: <%= current_user.email %> </br></br>
+
+
+
+
+<%= link_to "Informationen bearbeiten", edit_user_registration_path(current_user) %>
+
+</div>

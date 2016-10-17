@@ -40,16 +40,20 @@ feature "sign in" do
 
   end
 
-  context "user has an account" do
+  context "user can create an account" do
     before do
       visit "/users/sign_up"
       fill_in "Email", with: "samedsdad@mail.com"
       fill_in "Password", with: "password"
       fill_in "Password confirmation", with: "password"
+      fill_in "Company name", with:"Anatoliya GmbH"
       fill_in "Description", with: "a company existing since 1990"
       fill_in "Street", with: "Marktstr. 9"
       fill_in "City", with:"Cologne"
+      fill_in "Postcode", with:"50968"
       fill_in "Country", with: "Germany"
+      fill_in "Contact number", with: "074000000"
+
       click_button "Sign up"
     end
 
@@ -68,12 +72,55 @@ feature "sign in" do
 
     scenario "user can visit his profile" do
       click_link("Mein Profil")
-      expect(page).to have_content ("Hello samedsdad@mail.com a company existing since 1990 ")
+      expect(page).to have_content ("company existing since 1990 ")
     end
     scenario "user can see his address on his profile" do
       click_link("Mein Profil")
-      expect(page).to have_content("Marktstr. 9 Cologne Germany")
+      expect(page).to have_content("Address: Street: Marktstr. 9 City: Cologne Postcode: 50968 Country: Germany")
     end
+    scenario "user can see his company name on his profile" do
+      click_link("Mein Profil")
+      expect(page).to have_content("Anatoliya GmbH")
+    end
+    scenario "user can see his contact number on his profile" do
+      click_link("Mein Profil")
+      expect(page).to have_content("074000000")
+    end
+  end
+  context "user can edit his profile" do
+    before do
+      visit "/users/sign_up"
+      fill_in "Email", with: "samedsdad@mail.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      fill_in "Company name", with:"Anatoliya GmbH"
+      fill_in "Description", with: "a company existing since 1990"
+      fill_in "Street", with: "Marktstr. 9"
+      fill_in "City", with:"Cologne"
+      fill_in "Postcode", with:"50968"
+      fill_in "Country", with: "Germany"
+      fill_in "Contact number", with: "074000000"
 
-end
+      click_button "Sign up"
+      click_link "Mein Profil"
+    end
+    scenario "user can edit his company name, description, address(street, city, postcode, country and contact number)" do
+      click_link "Informationen bearbeiten"
+      fill_in "Current password", with: "password"
+
+      fill_in "Company name", with:"Anatolia"
+      fill_in "Description", with: "a company existing since 1989"
+      fill_in "Street", with: "Marktstr. 7"
+      fill_in "City", with:"Düsseldorf"
+      fill_in "Postcode", with:"50967"
+      fill_in "Country", with: "German"
+      fill_in "Contact number", with: "074000001"
+      click_button "Update"
+      expect(page).to have_content ("company existing since 1989")
+      expect(page).to have_content ("Address: Street: Marktstr. 7 City: Düsseldorf Postcode: 50967 Country: German")
+      expect(page).to have_content("074000001")
+
+
+    end
+  end
 end
