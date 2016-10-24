@@ -28,5 +28,9 @@ end
 def add_product(product: "Apple")
   click_link 'Produkt hinzufügen'
   fill_in 'Produktsorte', with: product
+  fill_in "Herkunftsland", with: "Uruguay"
+  fill_in "Paketgröße", with: "100kg"
+  fill_in "Paketpreis", with:"10€"
+  fill_in "Produktklasse",with:"1"
   click_button 'Produkt hinzufügen'
 end

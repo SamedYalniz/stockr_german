@@ -5,7 +5,7 @@
   <% if current_user.stock.products.any? %>
     <% current_user.stock.products.each do |product| %>
       <div class="list-group">
-      <%= product.name %>
+      <%= product.name %> | Herkunftsland: <%= product.country_of_origin %> | Paketgröße: <%= product.boxsize %> | Paketpreis: <%= product.boxprice %> | Produktklasse: <%= product.product_class %>
     </div>
     <% end %>
   <% end %>
