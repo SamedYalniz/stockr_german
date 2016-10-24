@@ -1,7 +1,7 @@
 <div class="container">
 <input type="checkbox" id="selectAll"> Alle auswählen </input>
 <%= form_for [current_user, @stock ] do |f| %>
-  <%= f.collection_check_boxes(:product_id, current_user.products, :id, :name) do |b|%>
+  <%= f.collection_check_boxes(:product_id, current_user.products, :id, :all_attributes) do |b|%>
       <li class="checkbox"><%= b.label(:"data-value" => b.value) { b.check_box + " " +  b.text } %>
       </li>
     <% end %>
