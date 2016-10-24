@@ -5,21 +5,20 @@ feature 'product' do
     sign_up
     click_link 'Produkt hinzufügen'
     fill_in 'Produktsorte', with: "Apple"
-    click_button 'Produkt hinzufügen'
-    expect(page).to have_content("Apple")
-    expect(Product.count).to eq 1
-  end
-  scenario 'a new product can be added with boxsize and country of origin and price for box' do
-    sign_up
-    click_link 'Produkt hinzufügen'
-    fill_in 'Produktsorte', with: "Apple"
     fill_in 'Herkunftsland', with: "Uruguay"
     fill_in 'Paketgröße', with: "10kg"
     fill_in 'Paketpreis', with: "12€"
     fill_in 'Produktklasse', with: 1
-    click_button "Produkt hinzufügen"
-    expect(page).to have_content("Produktsorte: Apple | Herkunftsland: Uruguay | Paketgröße: 10kg | Paketpreis: 12€ | Produktklasse: 1")
+    click_button 'Produkt hinzufügen'
+    expect(page).to have_content("Apple")
     expect(Product.count).to eq 1
+  end
+  scenario 'a new product cannot  be added without boxsize and country of origin and price for box' do
+    sign_up
+    click_link 'Produkt hinzufügen'
+    fill_in 'Produktsorte', with: "Apple"
+    click_button "Produkt hinzufügen"
+    expect(Product.count).to eq 0
   end
   scenario 'a product can be editted' do
     sign_up
