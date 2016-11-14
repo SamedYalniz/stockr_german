@@ -1,4 +1,23 @@
 <div class="container centered">
+  <h1> Firma suchen </h1>
+  <%= form_tag home_index_path, method: :get do %>
+  <%= text_field_tag :search_company, params[:search_company], placeholder: "Firma suchen" %>
+  <%= submit_tag "Suchen", name: nil %>
+<% end %>
+
+  <div class= "user_search_results">
+  <% if @users %>
+    <% @users.each do |user| %>
+    <ul>
+      <li> <%= link_to "#{user.company_name}", user_path(user)%>
+          <%= user.country %>
+          <%=user.city %> </li>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
+
+
   <h1> Alle ihre Produkte</h1>
 
   <%= link_to 'Produkt hinzufügen', new_user_product_path(current_user) %> |

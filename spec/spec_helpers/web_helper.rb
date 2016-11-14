@@ -6,7 +6,16 @@ def sign_up(email="samedsdad@mail.com")
   fill_in "Email", with: email
   fill_in "Password", with: "password"
   fill_in "Password confirmation", with: "password"
+  fill_in "Company name", with:"Anatoliya GmbH"
+  fill_in "Description", with: "a company existing since 1990"
+  fill_in "Street", with: "Marktstr. 9"
+  fill_in "City", with:"Cologne"
+  fill_in "Postcode", with:"50968"
+  fill_in "Country", with: "Germany"
+  fill_in "Contact number", with: "074000000"
+
   click_button "Sign up"
+  visit '/'
 end
 
 def login(email="samedsdad@mail.com")

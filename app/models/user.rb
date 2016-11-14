@@ -13,4 +13,10 @@ validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   has_many :customers, dependent: :destroy
   has_many :products, dependent: :destroy
   has_one :stock
+
+  def self.search(search)
+    search_var = search.downcase
+    where("lower(company_name) LIKE ?", "%#{search_var}%")
+  end
+
 end

@@ -107,7 +107,6 @@ feature "sign in" do
     scenario "user can edit his company name, description, address(street, city, postcode, country and contact number)" do
       click_link "Informationen bearbeiten"
       fill_in "Current password", with: "password"
-
       fill_in "Company name", with:"Anatolia"
       fill_in "Description", with: "a company existing since 1989"
       fill_in "Street", with: "Marktstr. 7"
@@ -125,6 +124,25 @@ feature "sign in" do
       page.attach_file('user[image]', Rails.root + 'app/assets/images/company.jpeg')
       click_button 'Upload picture'
       expect(page).to have_xpath('//img[contains(@src,"company.jpeg")]')
+    end
+    scenario "user can search for other users" do
+      click_link "Abmelden"
+      sign_up("cengiz@cengiz.com")
+      visit "/"
+      fill_in "search_company", with: "Anatoliya"
+      click_button "Suchen"
+      expect(page).to have_content("Anatoliya GmbH Germany Cologne Anatoliya GmbH Germany Cologne")
+    end
+    scenario "user can search for a user and click on its name to see his profile" do
+      click_link "Abmelden"
+      sign_up ("cengiz@cengiz.com")
+      visit "/"
+      fill_in "search_company", with: "Anatoliya"
+      click_button "Suchen"
+      within (".user_search_results") do
+        first(:link).click
+      end
+      expect(page).to have_content("Anatoliya GmbH's profile")
     end
   end
 end
