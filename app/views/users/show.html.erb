@@ -1,7 +1,7 @@
 <div class="container">
-<%= image_tag current_user.image.url(:medium) %>
+<%= image_tag @user.image.url(:medium) %>
 
-
+          <% if @user == current_user %>
           <%= form_for current_user, html: {multipart: true, class: "form-inline"} do |f| %>
 
             <!-- Trigger the modal with a button -->
@@ -31,25 +31,27 @@
             </div>
 
           <% end %>
+          <% end %>
 
-<%= current_user.company_name %>'s profile <br> <br>
+<%= @user.company_name %>'s profile <br> <br>
 
-Description: <%= current_user.description %> </br>
+Description: <%= @user.description %> </br>
 <div class="address">
 Address: <br>
-Street:  <%= current_user.street %> </br>
-City:    <%= current_user.city %></br>
-Postcode: <%= current_user.postcode %></br>
-Country: <%= current_user.country %></br>
+Street:  <%= @user.street %> </br>
+City:    <%= @user.city %></br>
+Postcode: <%= @user.postcode %></br>
+Country: <%= @user.country %></br>
 
       </div>
       <br>
-Contact no: <%= current_user.contact_number %> <br>
-Email: <%= current_user.email %> </br></br>
+Contact no: <%= @user.contact_number %> <br>
+Email: <%= @user.email %> </br></br>
 
 
 
-
+<% if @user == current_user %>
 <%= link_to "Informationen bearbeiten", edit_user_registration_path(current_user) %>
+<% end %>
 
 </div>
