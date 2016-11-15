@@ -1,13 +1,21 @@
+
 <%= form_for [current_user, @product] do |form| %>
+   <div class="form-group">
   <%= form.label :name, "Produktsorte:" %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, class: "form-control", placeholder: "z.B Granny Smith Apfel"%> <br>
+
   <%= form.label :country_of_origin, "Herkunftsland:" %>
-  <%= form.text_field :country_of_origin%>
-  <%= form.label :boxsize, "Paketgröße:"%>
-  <%= form.text_field :boxsize %>
-  <%= form.label :boxprice, "Paketpreis:" %>
-  <%= form.text_field :boxprice %>
-  <%= form.label :product_class, "Produktklasse:" %>
-  <%= form.text_field :product_class %>
+  <%= form.text_field :country_of_origin,class: "form-control" %> <br>
+
+  <%= form.label :boxsize, "Paketgröße:"%> <i>(Kg pro Kiste oder Palette) </i>
+  <%= form.text_field :boxsize, class: "form-control" %><br>
+
+  <%= form.label :boxprice, "Paketpreis:" %> <i>(€)</i>
+  <%= form.text_field :boxprice, class: "form-control" %><br>
+
+  <%= form.label :product_class, "Produktklasse:" %> <i> A, B, C oder 1, 2, 3 </i>
+  <%= form.text_field :product_class, class: "form-control" %><br>
+
   <%= form.submit "Produkt hinzufügen", class: "btn btn-primary" %>
+  </div>
 <% end %>

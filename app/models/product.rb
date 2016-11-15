@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :user
+  validates_presence_of :name
   validates_presence_of :country_of_origin
   validates_presence_of :boxsize
   validates_presence_of :boxprice

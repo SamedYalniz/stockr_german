@@ -14,7 +14,7 @@
   <% @products.each do |product| %>
   <div class="list-group">
     <div>Produktsorte: <%= product.name %>
-      <% if product.country_of_origin %>
+     <% if product.country_of_origin %>
       |  Herkunftsland: <%=product.country_of_origin %>
       <%  end  %>
       <% if product.boxsize %>
@@ -25,8 +25,7 @@
       <% end %>
       <% if product.product_class %>
       | Produktklasse: <%= product.product_class %>
-      <% end %>
-
+      <% end %> 
     </div>
     <%= link_to "#{product.name} bearbeiten", edit_user_product_path(current_user, product), class: "list-group-item-text" %> |
     <%= link_to "#{product.name} löschen", user_product_path(current_user, product), method: :delete, class: "list-group-item-text"%>
