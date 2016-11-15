@@ -48,6 +48,7 @@ Country: <%= @user.country %></br>
 Contact no: <%= @user.contact_number %> <br>
 Email: <%= @user.email %> </br></br>
 
+<%= link_to "Der aktuelle Lagerbestand", user_stocks_path(@user) %>
 
 
 <% if @user == current_user %>
