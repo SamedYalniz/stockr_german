@@ -140,3 +140,50 @@ pre {
   align-content: center;
   width:30%;
 }
+
+.profile_title {
+
+  text-align: center;
+}
+
+.pencil {
+  display: none;
+  text-align: right;
+
+}
+
+.company_information {
+  padding: 20px;
+  height: 100%;
+}
+
+.line-separator {
+  height:1px;
+  width:100%;
+  background:#e2e2e2;
+  border-bottom:1px solid #e2e2e2;
+}
+.information_header {
+  border-bottom: 1px solid #dddfe2;
+  line-height: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #90949c
+}
+
+.company-information-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom:1px solid #e2e2e2;
+
+}
+
+#profile-picture{
+  text-align: center;
+
+}
+
+#change-profile-picture-btn{
+  margin-top: 2px;
+}

@@ -1,4 +1,6 @@
 <div class="container centered">
+<h2>Teilen Sie ihren Kunden ihren Lagerbestand mit </h2>
+
   <h1> Firma suchen </h1>
   <%= form_tag home_index_path, method: :get do %>
   <%= text_field_tag :search_company, params[:search_company], placeholder: "Firma suchen" %>
@@ -25,7 +27,8 @@
 
 
 
-  <h1> Ihr aktueller Lagerbestand (dieser wird ihren Kunden zugesendet)</h1>
+  <h1> Ihr aktueller Lagerbestand</h1>
+  <i>(dieser wird ihren Kunden zugesendet)</i><br>
   <%= link_to "Aktueller Lagerbestand", user_stocks_path(current_user) %>
 
   <h1> Kundenliste </h1>

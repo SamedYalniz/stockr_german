@@ -1,5 +1,14 @@
 <div class="container">
-<%= image_tag @user.image.url(:medium) %>
+  <div class="line-separator"></div>
+    <h2 class="profile_title"> <%= @user.company_name %></h2>
+  <div class="line-separator"></div>
+  <br>
+
+
+  <div class="row">
+
+    <div class="col-md-5", style="border-right: 1px solid #e2e2e2" id="profile-picture">
+        <%= image_tag(@user.image.url(:medium), class:"img-thumbnail") %><br>
 
           <% if @user == current_user %>
           <%= form_for current_user, html: {multipart: true, class: "form-inline"} do |f| %>
@@ -14,7 +23,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" >&times;</button>
                     <h4 class="modal-title">Change Profile Picture</h4>
                   </div>
                   <div class="modal-body">
@@ -32,27 +41,51 @@
 
           <% end %>
           <% end %>
-
-<%= @user.company_name %>'s profile <br> <br>
-
-Description: <%= @user.description %> </br>
-<div class="address">
-Address: <br>
-Street:  <%= @user.street %> </br>
-City:    <%= @user.city %></br>
-Postcode: <%= @user.postcode %></br>
-Country: <%= @user.country %></br>
-
-      </div>
-      <br>
-Contact no: <%= @user.contact_number %> <br>
-Email: <%= @user.email %> </br></br>
-
-<%= link_to "Der aktuelle Lagerbestand", user_stocks_path(@user) %>
+        </div>
 
 
+<div class=col-md-7>
+<div class="company_information">
+<div class="information_header">
+  <span> Description </span><br>
+</div>
+<ul class="company-information-list">
+<li><%= @user.description %><br><br> </li>
+</ul>
+<br>
+
+<div class="information_header">
+  <span> Address </span>
+</div>
+<ul class="company-information-list">
+<li><%= @user.street %> <br>
+<%= @user.city %> <%= @user.postcode %></br>
+<%= @user.country %></br></li>
+</ul>
+<br>
+<div class="information_header">
+  <span> Contact </span>
+</div>
+<ul class="company-information-list">
+<li>Tel: <%= @user.contact_number %> <br></li>
+<li>Email: <%= @user.email %> </br></li>
+</ul>
 <% if @user == current_user %>
-<%= link_to "Informationen bearbeiten", edit_user_registration_path(current_user) %>
+<%= link_to edit_user_path(current_user) do %>
+  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<%end %>
 <% end %>
+</br>
+<%= link_to "Der aktuelle Lagerbestand", user_stocks_path(@user) %>
+</div>
 
+
+
+
+
+
+
+
+</div>
+</div>
 </div>
