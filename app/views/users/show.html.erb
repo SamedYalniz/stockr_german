@@ -50,7 +50,7 @@
   <span> Description </span><br>
 </div>
 <ul class="company-information-list">
-<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :description, type: :textarea%>
+<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :description, as: :textarea, :inner_class => "best_in_place_class"%>
   <% if @user == current_user %>
     <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
   <% end %>
