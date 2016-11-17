@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  respond_to :html, :json
   def show
     @user = User.find(params[:id])
   end
@@ -7,9 +8,8 @@ class UsersController < ApplicationController
   end
   def update
     @user = User.find(params[:id])
-    @user.image = user_params[:image]
-    @user.save
-    redirect_to user_path(@user)
+    @user.update_attributes(user_params)
+    respond_with @user
   end
 
   def index
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:image)
+    params.require(:user).permit(:image, :email, :description, :street, :city, :country, :contact_number, :company_name, :postcode)
   end
 end

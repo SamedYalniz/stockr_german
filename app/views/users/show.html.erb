@@ -50,7 +50,12 @@
   <span> Description </span><br>
 </div>
 <ul class="company-information-list">
-<li><%= @user.description %><br><br> </li>
+<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :description, type: :textarea%>
+  <% if @user == current_user %>
+    <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  <% end %>
+  <br><br>
+</li>
 </ul>
 <br>
 
@@ -58,23 +63,49 @@
   <span> Address </span>
 </div>
 <ul class="company-information-list">
-<li><%= @user.street %> <br>
-<%= @user.city %> <%= @user.postcode %></br>
-<%= @user.country %></br></li>
+<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :street %>
+<% if @user == current_user %>
+    <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+<br>
+</li>
+<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :city %>
+<% if @user == current_user %>
+  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+</li>
+<br>
+<li class="company_information_details"><%= best_in_place_if (@user==current_user), @user, :postcode %>
+<% if @user == current_user %>
+  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+</br>
+</li>
+<li class="company_information_details"> <%= best_in_place_if (@user==current_user), @user, :country %>
+<% if @user == current_user %>
+  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+</br>
+</li>
 </ul>
 <br>
 <div class="information_header">
   <span> Contact </span>
 </div>
 <ul class="company-information-list">
-<li>Tel: <%= @user.contact_number %> <br></li>
-<li>Email: <%= @user.email %> </br></li>
-</ul>
+<li class="company_information_details">Tel: <%=best_in_place_if (@user==current_user), @user, :contact_number %>
 <% if @user == current_user %>
-<%= link_to edit_user_path(current_user) do %>
-  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
-<%end %>
+    <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
+<br>
+</li>
+<li class="company_information_details">Email: <%= best_in_place_if (@user==current_user), @user, :email %>
+<% if @user == current_user %>
+<span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+</br>
+</li>
+</ul>
 </br>
 <%= link_to "Der aktuelle Lagerbestand", user_stocks_path(@user) %>
 </div>

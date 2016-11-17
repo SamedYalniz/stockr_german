@@ -30,6 +30,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'paperclip'
 
+gem 'best_in_place'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
