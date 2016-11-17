@@ -188,13 +188,17 @@ pre {
   margin-top: 2px;
 }
 
-.company_information_details:hover {
-  list-style-position:inside;
+.company_information_details.Hover{
   border: 1px solid black;
   border-color: #4169E1;
 }
 
-textarea {
-  width:100%;
+.company_information_details input[type="text"] {
   height: 100%;
+  width: 80%;
+}
+
+.company_information_details textarea {
+  height: 100%;
+  width: 80%;
 }
