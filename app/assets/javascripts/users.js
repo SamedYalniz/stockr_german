@@ -7,7 +7,7 @@ $( document ).ready(function() {
       }
       else {
         $(this).addClass("Hover");
-
+        $(this).find('span.pencil').show();
       }
       $("li.company_information_details").focusin(function() {
         $(this).removeClass("Hover");

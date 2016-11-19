@@ -173,7 +173,7 @@ pre {
 
 .company-information-list {
   list-style-type: none;
-  margin: 0;
+  margin-left: 0px;
   padding: 0;
   border-bottom:1px solid #e2e2e2;
 
@@ -201,4 +201,38 @@ pre {
 .company_information_details textarea {
   height: 100%;
   width: 80%;
+}
+
+ul {
+  position: relative;
+}
+
+.company_information_details:before {
+  content: attr(data-label);
+  position: absolute;
+  left: 0px;
+}
+
+.company_information_details {
+  margin-left: 60px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
