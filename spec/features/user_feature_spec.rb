@@ -7,8 +7,8 @@ feature "sign in" do
     scenario "user is directed to sign up form after trying to log in" do
       visit "/"
       fill_in "Email", with: "samedsdad@mail.com"
-      fill_in "Password", with: "password"
-      click_button "Log in"
+      fill_in "Passwort", with: "password"
+      click_button "Anmelden"
       expect(page).to have_content "Sign up"
     end
 
@@ -57,8 +57,8 @@ feature "sign in" do
       click_link "Abmelden"
       visit "/"
       fill_in "Email", with: "samedsdad@mail.com"
-      fill_in "Password", with: "password"
-      click_button "Log in"
+      fill_in "Passwort", with: "password"
+      click_button "Anmelden"
       expect(page).to have_content "samedsdad@mail.com"
     end
 
