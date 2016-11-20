@@ -2,6 +2,7 @@
   <div class="navbar-class">
     <div class="container">
         <li class="navbar-brand"><%=link_to "Stockr", authenticated_root_path %></li>
+        <li> </li>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><a><%= "#{current_user.email}"%></a></li>

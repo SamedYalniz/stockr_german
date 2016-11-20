@@ -1,5 +1,9 @@
 
+
+
 $( document ).ready(function() {
+
+
     $("li.company_information_details").hover((function() {
       $(this).find('span.pencil').show();
       if($(this).find(":input").is(":focus")){
@@ -17,17 +21,4 @@ $( document ).ready(function() {
       $(this).removeClass("Hover");
 
     });
-});
-
-
-$(document).ready(function() {
-  /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
-
-
-});
-
-
-$(document).ready(function() {
-
 });

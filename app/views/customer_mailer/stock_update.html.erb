@@ -1,11 +1,66 @@
-<h1>Lagerbestand <%= DateTime.now.to_date %> </h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Aktueller Lagerbestand Email</title>
+  <style type="text/css">
 
-<p>
-  <%= @greeting %>, <br />
-Der Lagerbestand von <%= @user.email %> wurde aktualisiert. Das sind die aktuellen Produkte:  <br />
+    #products_table{
+          font-size: 16px;
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          border-spacing: 0;
+          width: 90%;
+    }
+
+    #products_table td, #products_table th {
+          border: 1px solid #ddd;
+          text-align: left;
+          padding: 8px;
+
+    }
+    tr:nth-child(odd) {background-color: #f2f2f2}
+
+    th {
+        background-color: #33ccff;
+        color: white;
+    }
+    .stock_update_message {
+      font-size: 18px;
+    }
+    </style>
+</head>
+<body>
+
+
+
+<h1>Neuer Lagerbestand von <%= @user.company_name %>   <%=Time.now.strftime("%d")%>/<%=Time.now.strftime("%m")%>/<%= Time.now.strftime("%Y")%> </h1>
+
+
+<span class="stock_update_message"> <%= @greeting %> <br />
+  Der Lagerbestand von <%= @user.company_name %> wurde aktualisiert.<br><br>
+  Dies sind die aktuellen Produkte:
+</span><br /><br>
+
+
+<table id="products_table" style="border:1px">
+  <tr>
+    <th> Produktsorte </th>
+    <th> Herkunftsland </th>
+    <th> Produktklasse </th>
+    <th> Paketgröße </th>
+    <th> Paketpreis </th>
+  </tr>
   <% @user.stock.products.each do |product|%>
-    <%= product.name %> <br />
-  <% end %>
+    <tr>
+      <td> <%= product.name %></td>
+      <td> <%= product.country_of_origin %> </td>
+      <td> <%= product.product_class %> </td>
+      <td> <%= product.boxsize %> </td>
+      <td> <%= product.boxprice %> </td>
+    </tr>
+    <% end %>
+  </table>
 
-
-</p>
+</body>
+</html>

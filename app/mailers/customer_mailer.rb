@@ -6,14 +6,14 @@ default to: "test@mail.com"
   #   en.customer_mailer.stock_update.subject
 
   def stock_update(user)
-    @greeting = "Hi"
+    @greeting = "Hallo,"
     @user = user
     if @user.customers.any?
       @emails = []
       @user.customers.each do |customer|
         @emails << customer.email
       end
-        mail( to: @user.email, bcc: @emails, subject: "#{@user.email} Aktueller Lagerbestand", from: @user.email)
+        mail( to: @user.email, bcc: @emails, subject: "#{@user.company_name} Aktueller Lagerbestand", from: @user.email)
     end
   end
 end

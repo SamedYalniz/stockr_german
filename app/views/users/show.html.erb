@@ -72,21 +72,22 @@
 <br>
 </li>
 <li class="company_information_details" data-label="Stadt: "><%= best_in_place_if (@user==current_user), @user, :city %>
+</li>
+
+<% if @user == current_user %>
+  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<% end %>
+<li class="company_information_details" data-label="PLZ:"><%= best_in_place_if (@user==current_user), @user, :postcode %>
 <% if @user == current_user %>
   <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
 </li>
-<li class="company_information_details" data-label="PLZ: "><%= best_in_place_if (@user==current_user), @user, :postcode %>
-<% if @user == current_user %>
-  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
-<% end %>
-</br>
-</li>
+<br>
 <li class="company_information_details" data-label="Land: "> <%= best_in_place_if (@user==current_user), @user, :country %>
 <% if @user == current_user %>
   <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
-</br>
+<br>
 </li>
 </ul>
 <br>
