@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let( :user ) {User.create(email: 'test@test.com', password: 'test123', password_confirmation: 'test123' ) }
+  let( :user ) {User.create(email: 'test@test.com', password: 'test123', password_confirmation: 'test123', company_name: "Anatoliya Gmbh" ) }
   let!( :customer ) { user.customers.create(name: 'Richard', email: 'richard@mail.com' )}
   # it 'sends a stock update email' do
   #   expect { user.stock_update }

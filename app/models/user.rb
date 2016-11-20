@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+validates_presence_of :company_name
 
 has_attached_file :image, styles: { small: "64x64", medium: "200x200", large: "200x200" },:default_url => ActionController::Base.helpers.asset_path('default.jpeg')
 validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

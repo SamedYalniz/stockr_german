@@ -4,24 +4,18 @@ def sign_up(email="samedsdad@mail.com")
     click_link('Registrieren')
   end
   fill_in "Email", with: email
-  fill_in "Password", with: "password"
-  fill_in "Password confirmation", with: "password"
-  fill_in "Company name", with:"Anatoliya GmbH"
-  fill_in "Description", with: "a company existing since 1990"
-  fill_in "Street", with: "Marktstr. 9"
-  fill_in "City", with:"Cologne"
-  fill_in "Postcode", with:"50968"
-  fill_in "Country", with: "Germany"
-  fill_in "Contact number", with: "074000000"
+  fill_in "user[password]", with: "password"
+  fill_in "Passwort bestätigen", with: "password"
+  fill_in "Firmenname", with:"Anatoliya GmbH"
 
-  click_button "Sign up"
+  click_button "Registrieren"
   visit '/'
 end
 
 def login(email="samedsdad@mail.com")
   visit "/"
   fill_in "Email", with: email
-  fill_in "Password", with: "password"
+  fill_in "Passwort", with: "password"
   click_button "Login"
 end
 
