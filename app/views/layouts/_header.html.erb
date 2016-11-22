@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><a><%= "#{current_user.email}"%></a></li>
-            <li><%= link_to "Mein Profil", user_path(current_user)%> </li>
+            <li><%= link_to "Mein Profil", user_path(current_user), 'data-no-turbolink' => true%> </li>
             <li> <%= link_to "Account bearbeiten", edit_user_registration_path %></li>
 
             <li><%=link_to "Abmelden", destroy_user_session_path, method: :delete %></li>

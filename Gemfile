@@ -29,10 +29,12 @@ gem 'coveralls', require: false
 gem 'twitter-bootstrap-rails'
 
 gem 'paperclip'
-
+gem 'r18n-rails'
 gem 'best_in_place'
 
 gem 'roadie'
+gem 'jquery-turbolinks'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

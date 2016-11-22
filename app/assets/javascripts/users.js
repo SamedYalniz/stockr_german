@@ -1,9 +1,5 @@
-
-
-
-$( document ).ready(function() {
-
-
+document.addEventListener("turbolinks:load", function() {
+  jQuery(".best_in_place").best_in_place();
     $("li.company_information_details").hover((function() {
       $(this).find('span.pencil').show();
       if($(this).find(":input").is(":focus")){
@@ -19,6 +15,9 @@ $( document ).ready(function() {
     }), function() {
       $(this).find('span.pencil').hide();
       $(this).removeClass("Hover");
-
     });
+});
+
+$(document).ready(function() {
+  /* Activating Best In Place */
 });

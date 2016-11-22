@@ -52,7 +52,7 @@
   <span> Beschreibung </span><br>
 </div>
 <ul class="company-information-list">
-<li class="company_information_details" data-label="Info:"><%= best_in_place_if (@user==current_user), @user, :description, as: :textarea, :inner_class => "best_in_place_class"%>
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="Info:"><%= best_in_place_if (@user==current_user), @user, :description, as: :textarea, :inner_class => "best_in_place_class"%>
   <% if @user == current_user %>
     <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
   <% end %>
@@ -65,25 +65,28 @@
   <span> Addresse </span>
 </div>
 <ul class="company-information-list">
-<li class="company_information_details" data-label="Straße: "><%= best_in_place_if (@user==current_user), @user, :street %>
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="Straße: "><%= best_in_place_if (@user==current_user), @user, :street %>
 <% if @user == current_user %>
     <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
 <br>
 </li>
-<li class="company_information_details" data-label="Stadt: "><%= best_in_place_if (@user==current_user), @user, :city %>
+
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="Stadt: "><%= best_in_place_if (@user==current_user), @user, :city %>
+  <% if @user == current_user %>
+    <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  <% end %>
+  <br>
 </li>
 
-<% if @user == current_user %>
-  <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
-<% end %>
-<li class="company_information_details" data-label="PLZ:"><%= best_in_place_if (@user==current_user), @user, :postcode %>
+
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="PLZ:"><%= best_in_place_if (@user==current_user), @user, :postcode %>
 <% if @user == current_user %>
   <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
 </li>
 <br>
-<li class="company_information_details" data-label="Land: "> <%= best_in_place_if (@user==current_user), @user, :country %>
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="Land: "> <%= best_in_place_if (@user==current_user), @user, :country %>
 <% if @user == current_user %>
   <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
@@ -95,16 +98,13 @@
   <span> Kontakt </span>
 </div>
 <ul class="company-information-list">
-<li class="company_information_details" data-label="Tel: "><%=best_in_place_if (@user==current_user), @user, :contact_number %>
+<li class="company_information_details <%= :current_user if @user == current_user %>" data-label="Tel: "><%=best_in_place_if (@user==current_user), @user, :contact_number %>
 <% if @user == current_user %>
     <span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
 <% end %>
 <br>
 </li>
-<li class="company_information_details" data-label="Email: "><%= best_in_place_if (@user==current_user), @user, :email %>
-<% if @user == current_user %>
-<span class="pencil glyphicon glyphicon-pencil" aria-hidden="true"></span>
-<% end %>
+<li class="company_information_details" data-label="Email: "><%= @user.email %>
 </br>
 </li>
 </ul>
