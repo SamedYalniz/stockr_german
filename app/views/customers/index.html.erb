@@ -1,5 +1,6 @@
 <div class="container">
 <%= link_to 'Kunde hinzufügen', new_user_customer_path(current_user) %> |
+<%= link_to "Email Vorschau", mailer_preview_path(current_user) %> |
 <%= link_to 'Lagerbestand versenden', send_stock_update_user_customer_path(current_user, 1) %>
 <hr>
 <br>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-
+  resources :mailer_previews 
   resources :users do
     resources :stocks
     resources :products do

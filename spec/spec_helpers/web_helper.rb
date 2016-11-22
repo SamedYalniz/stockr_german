@@ -19,12 +19,12 @@ def login(email="samedsdad@mail.com")
   click_button "Login"
 end
 
-def create_customer
+def create_customer(customer_email="damla@gmail.com")
   sign_up
   click_link 'Kundenliste'
   click_link 'Kunde hinzufügen'
   fill_in 'Name', with: "Damla Baklavalari"
-  fill_in 'Email', with: "damla@gmail.com"
+  fill_in 'Email', with: customer_email
   click_button 'Kunde hinzufügen'
 end
 
@@ -36,4 +36,12 @@ def add_product(product: "Apple")
   fill_in "Paketpreis", with:"10€"
   fill_in "Produktklasse",with:"1"
   click_button 'Produkt hinzufügen'
+end
+
+def create_stock(produkt ="Apple")
+  visit '/'
+  click_link 'Aktueller Lagerbestand'
+  click_link 'Produkt zum Lagerbestand hinzufügen'
+  page.check(produkt)
+  click_button 'Zum Lagerbestand hinzufügen'
 end
